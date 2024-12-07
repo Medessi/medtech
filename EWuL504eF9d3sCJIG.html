@@ -1,0 +1,804 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Découvrez le développement web et créez votre propre site internet en 4 heures ! Apprenez HTML, CSS, et plus encore lors de notre atelier interactif.">
+  <meta name="keywords" content="site web, développement web, HTML, CSS, responsive design, atelier, formation web, créer site internet">
+  <meta name="author" content="MEDTECH">
+  <meta property="og:title" content="Créez votre premier site web en 4 heures !">
+  <meta property="og:description" content="Rejoignez notre atelier de 4 heures pour apprendre à créer un site web, maîtriser HTML, CSS et plus encore. Inscrivez-vous dès maintenant !">
+  <meta property="og:image" content="URL_de_votre_image_de_partage_og.jpg">
+  <meta property="og:url" content="URL_de_votre_site">
+  <meta name="twitter:title" content="Créez votre premier site web en 4 heures !">
+  <meta name="twitter:description" content="Rejoignez notre atelier de 4 heures pour apprendre à créer un site web, maîtriser HTML, CSS et plus encore. Inscrivez-vous dès maintenant !">
+  <meta name="twitter:image" content="URL_de_votre_image_de_partage_twitter.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <title>Créez votre premier site web en 4 heures !</title>
+
+
+<style>
+:root {
+  --primary: #4a90e2;
+  --secondary: #2ecc71;
+  --accent: #ff6b6b;
+  --bg: #f8f9fb;
+  --text: #2d3436;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), #5d3fd3), 
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M25 10L75 10L75 35L90 35L90 65L75 65L75 90L25 90L25 65L10 65L10 35L25 35L25 10Z'/%3E%3Cpath d='M30 20L70 20L70 40L85 40L85 60L70 60L70 80L30 80L30 60L15 60L15 40L30 40L30 20Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+  background-size: cover;
+  color: white;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+}
+
+.cta-button {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.feature-card {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.form-container {
+  background: linear-gradient(135deg, #ffffff, #f8f9fb);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin: 4rem auto;
+  max-width: 600px;
+  scroll-margin-top: 2rem;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a90e2'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z'/%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+footer {
+  background: #1a237e;
+  color: white;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.program-details {
+  margin: 4rem 0;
+}
+
+.program-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+  transform: translateX(20px);
+}
+
+.timeline-content {
+  border-left: 4px solid var(--primary);
+  position: relative;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.loader.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--primary);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+  z-index: 1001;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.popup.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.popup-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .form-container {
+    margin: 2rem;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+  }
+  
+  .timeline-content {
+    width: 100%;
+  }
+}
+
+#error-tooltip {
+  position: absolute;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+#error-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff6b6b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container hero">
+      <h1>✨ Créez votre premier site web en 4 heures ! ✨</h1>
+      <p>Découvrez le monde fascinant du développement web et créez votre propre site internet !</p>
+      <a href="#inscription" class="cta-button">S'inscrire maintenant</a>
+    </div>
+  </header>
+  
+  <main class="container">
+    <section class="features">
+      <div class="feature-card">
+        <i class="fas fa-code fa-3x" style="color: var(--primary)"></i>
+        <h3>HTML & CSS</h3>
+        <p>Apprenez les bases du développement web avec les langages fondamentaux.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt fa-3x" style="color: var(--secondary)"></i>
+        <h3>Responsive Design</h3>
+        <p>Créez des sites adaptés à tous les écrans.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-rocket fa-3x" style="color: var(--accent)"></i>
+        <h3>Publication en ligne</h3>
+        <p>Mettez votre site en ligne et partagez-le avec le monde!</p>
+      </div>
+    </section>
+  
+    <section class="program-details">
+      <h2>Programme de la formation</h2>
+      <div class="program-timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>14h00 - 15h00</h3>
+            <p>Introduction au HTML</p>
+            <ul>
+              <li>Structure de base</li>
+              <li>Balises essentielles</li>
+              <li>Exercices pratiques</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>15h00 - 16h00</h3>
+            <p>Stylisation avec CSS</p>
+            <ul>
+              <li>Sélecteurs CSS</li>
+              <li>Mise en page</li>
+              <li>Responsive design</li>
+              <li>Exercices pratiques</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>16h00 - 17h00</h3>
+            <p>Publication et Conclusion</p>
+            <ul>
+              <li>Hébergement web</li>
+              <li>Mise en ligne de votre site</li>
+              <li>Questions/Réponses</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>17h00 - 18h00</h3>
+            <p>Atelier pratique et récapitulatif</p>
+            <ul>
+              <li>Exercices supplémentaires</li>
+              <li>Échanges sur les projets des participants</li>
+              <li>Conseils pour aller plus loin</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+
+  <section id="inscription" class="form-container">
+    <h2>Inscription à l'atelier</h2>
+    <form id="registration-form">
+      <div class="form-group">
+        <label for="firstname">Prénom *</label>
+        <input type="text" id="firstname" required>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Nom *</label>
+        <input type="text" id="lastname" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Âge *</label>
+        <input type="number" id="age" required min="15">
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Téléphone * (format: 8-15 chiffres)</label>
+        <input type="tel" id="phone" required 
+               pattern="[0-9]{8,15}" 
+               placeholder="Votre numéro de téléphone"
+               title="Veuillez entrer un numéro de téléphone valide">
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="terms-checkbox" required>
+          J'accepte les <a href="#terms" id="terms-link">conditions de participation</a>
+        </label>
+      </div>
+      <button type="submit" class="cta-button">Envoyer</button>
+    </form>
+  </section>
+
+  <section class="feature-card">
+    <h2>Détails pratiques</h2>
+    <p><i class="far fa-calendar"></i> Date: 23 Décembre 2024</p>
+    <p><i class="far fa-clock"></i> Durée: 4 heures (14h - 18h)</p>
+    <p><i class="fas fa-map-marker-alt"></i> Lieu: CEG ZOGBO</p>
+    <p><i class="fas fa-users"></i> Places limitées à 10 participants</p>
+    <p><i class="fas fa-mobile-alt"></i> Support technique disponible</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div style="text-align: center;">
+      <h3>Contactez-nous</h3>
+      <p>Email: medessiv@gmail.com</p>
+      <p>Tél: 019891933</p>
+      <div class="social-links">
+        <a href="https://facebook.com/webworkshop" class="social-link"><i class="fab fa-facebook"></i></a>
+        <a href="https://linkedin.com/company/webworkshop" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/webworkshop" class="social-link"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="loader">
+  <div class="loader-spinner"></div>
+</div>
+
+<div class="popup-overlay"></div>
+
+<div class="popup" id="success-popup">
+  <span class="close-popup">&times;</span>
+  <h3>Inscription confirmée !</h3>
+  <p>Un email de confirmation a été envoyé à votre adresse.</p>
+  <p>Rendez-vous le 15 juillet à 14h !</p>
+</div>
+
+<div class="popup" id="error-popup">
+  <span class="close-popup">&times;</span>
+  <h3>Erreur</h3>
+  <p>Une erreur est survenue lors de l'inscription. Veuillez réessayer.</p>
+</div>
+
+<div class="popup" id="terms-popup">
+  <span class="close-popup">&times;</span>
+  <h3>Conditions de participation</h3>
+  <div style="max-height: 400px; overflow-y: auto; margin: 1rem 0;">
+    <h4>1. Conditions générales</h4>
+    <p>En participant à cet atelier de formation web, vous acceptez les conditions suivantes :</p>
+    <ul>
+      <li>Être âgé d'au moins 15 ans</li>
+      <li>Disposer d'un ordinateur portable personnel ou d'uun smartphone Android uniquement utilisé</li>
+      <li>Respecter les horaires de formation</li>
+      <li>Suivre les instructions des formateurs</li>
+    </ul>
+    
+    <h4>2. Responsabilités</h4>
+    <p>Les participants s'engagent à :</p>
+    <ul>
+      <li>Maintenir une attitude respectueuse envers les autres participants</li>
+      <li>Ne pas perturber le bon déroulement de la formation</li>
+      <li>Respecter le matériel mis à disposition</li>
+    </ul>
+    
+    <h4>3. Confidentialité</h4>
+    <p>Les participants s'engagent à ne pas divulguer les supports de formation fournis.</p>
+    
+    <h4>4. Annulation</h4>
+    <p>Toute annulation doit être effectuée au moins 48h avant le début de la formation.</p>
+  </div>
+  <button class="cta-button" onclick="closeTermsPopup()">J'ai lu et j'accepte</button>
+</div>
+
+<script>
+function showTermsPopup(event) {
+  event.preventDefault();
+  document.getElementById('terms-popup').classList.add('active');
+  document.querySelector('.popup-overlay').classList.add('active');
+}
+
+function closeTermsPopup() {
+  document.getElementById('terms-popup').classList.remove('active');
+  document.querySelector('.popup-overlay').classList.remove('active');
+  document.getElementById('terms-checkbox').checked = true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize EmailJS with a try-catch block
+  try {
+    emailjs.init("QlyvNDuKNvWLyOf4V"); // Replace with your actual EmailJS public key
+  } catch (error) {
+    console.error('Erreur d\'initialisation EmailJS:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Service Indisponible',
+      text: 'Le service d\'email est actuellement indisponible. Veuillez réessayer plus tard.',
+      confirmButtonColor: '#4a90e2'
+    });
+  }
+
+  // Add terms popup click event
+  document.getElementById('terms-link').addEventListener('click', showTermsPopup);
+
+  // Form handling
+  const form = document.getElementById('registration-form');
+  if (!form) {
+    console.error('Registration form not found');
+    return;
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Validate terms checkbox
+    const termsCheckbox = document.getElementById('terms-checkbox');
+    if (!termsCheckbox.checked) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Conditions non acceptées',
+        text: 'Veuillez lire et accepter les conditions pour continuer',
+        confirmButtonColor: '#4a90e2'
+      });
+      return;
+    }
+
+    // Collect form data
+    const formData = {
+      firstname: document.getElementById('firstname')?.value || '',
+      lastname: document.getElementById('lastname')?.value || '',
+      age: document.getElementById('age')?.value || '',
+      email: document.getElementById('email')?.value || '',
+      phone: document.getElementById('phone')?.value || ''
+    };
+
+    // Validate all required fields are filled
+    const emptyFields = Object.entries(formData)
+      .filter(([_, value]) => !value)
+      .map(([key]) => key);
+
+    if (emptyFields.length > 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Informations Manquantes',
+        text: `Veuillez remplir tous les champs requis : ${emptyFields.join(', ')}`,
+        confirmButtonColor: '#4a90e2'
+      });
+      return;
+    }
+
+    // Show loading state
+    Swal.fire({
+      title: 'Envoi en cours...',
+      text: 'Veuillez patienter pendant le traitement de votre inscription',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    try {
+      // Prepare email template parameters
+      const templateParams = {
+        ...formData
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'service_zq5u5lo',  // Replace with your EmailJS service ID
+        'template_ow3rnce', // Replace with your EmailJS template ID
+        templateParams
+      );
+
+      if (response.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Inscription Confirmée !',
+          text: 'Un email de confirmation a été envoyé à votre adresse.',
+          confirmButtonColor: '#4a90e2'
+        });
+        form.reset();
+      } else {
+        throw new Error('Échec de l\'envoi de l\'email');
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: 'Une erreur est survenue lors de votre inscription. Veuillez réessayer.',
+        confirmButtonColor: '#4a90e2'
+      });
+    }
+  });
+
+  // Close popup functionality for all popups
+  document.querySelectorAll('.close-popup').forEach(button => {
+    button.addEventListener('click', () => {
+      button.closest('.popup').classList.remove('active');
+      document.querySelector('.popup-overlay').classList.remove('active');
+    });
+  });
+
+  // Close popups when clicking overlay
+  document.querySelector('.popup-overlay').addEventListener('click', () => {
+    document.querySelectorAll('.popup').forEach(popup => {
+      popup.classList.remove('active');
+    });
+    document.querySelector('.popup-overlay').classList.remove('active');
+  });
+
+  // Smooth scroll for registration button
+  document.querySelector('a[href="#inscription"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#inscription').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+
+  // Social media buttons hover animation
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      gsap.to(link, {
+        scale: 1.2,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    link.addEventListener('mouseleave', () => {
+      gsap.to(link, {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.in'
+      });
+    });
+  });
+
+  // Add animation for feature cards using GSAP ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.feature-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top bottom-=100',
+        toggleActions: 'play none none reverse'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      delay: i * 0.2
+    });
+  });
+
+  // Add hover effect for CTA buttons
+  document.querySelectorAll('.cta-button').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      gsap.to(button, {
+        scale: 1.05,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      gsap.to(button, {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.in'
+      });
+    });
+  });
+
+  // Timeline animation
+  const timelineItems = gsap.utils.toArray('.timeline-item');
+  timelineItems.forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top bottom-=50',
+        toggleActions: 'play none none reverse'
+      },
+      opacity: 0,
+      x: i % 2 === 0 ? -50 : 50,
+      duration: 1,
+      ease: 'power2.out'
+    });
+  });
+});
+</script>
+
+</body>
+</html>
